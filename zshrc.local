@@ -2,6 +2,7 @@
 # Purpose:       local config file for zsh (z shell)
 # Authors:       mail@volker-schering.de
 ################################################################################
-#
-#
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
 ## END OF FILE #################################################################
