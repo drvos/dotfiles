@@ -38,6 +38,7 @@ lnif $dotfiles/zshrc.local $HOME/.zshrc.local
 
 # fzf 
 echo "Setting up fzf...\n"
+lnif $dotfiles/fzf $HOME/.fzf
 lnif $dotfiles/fzf.zsh $HOME/.fzf.zsh
 
 # vim
@@ -52,3 +53,5 @@ echo "Setting up git...\n"
 lnif $dotfiles/gitconfig $HOME/.gitconfig
 lnif $dotfiles/gitignore_global $HOME/.gitignore_global
 
+
+## 
