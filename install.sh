@@ -19,14 +19,14 @@ lnif() {
 }
 
 echo "Installing/Updating dotfiles...\n"
-
-# if [ ! -e $dotfiles/.git ]; then
-#   echo "Cloning dotfiles\n"
-#   git clone https://github.com/fdietz/dotfiles.git $dotfiles
-# else
-#   echo "Updating dotfiles\n"
-#   cd $dotfiles && git pull
-# fi
+if [ ! -e $dotfiles/.git ]; then
+  echo "Cloning dotfiles\n"
+  git clone git@github.com:drvos/dotfiles.git $dotfiles
+  #git clone https://github.com/fdietz/dotfiles.git $dotfiles
+else
+  echo "Updating dotfiles\n"
+  cd $dotfiles && git pull
+fi
 
 # zsh
 echo "Setting up zsh...\n"
@@ -40,6 +40,11 @@ lnif $dotfiles/zshrc.local $HOME/.zshrc.local
 echo "Setting up fzf...\n"
 lnif $dotfiles/fzf $HOME/.fzf
 lnif $dotfiles/fzf.zsh $HOME/.fzf.zsh
+
+# tmux
+echo "Setting up tmux...\n"
+lnif $dotfiles/tmux $HOME/.tmux
+lnif $dotfiles/tmux.conf $HOME/.tmux.conf
 
 # vim
 echo "Setting up vim...\n"
