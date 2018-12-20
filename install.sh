@@ -22,10 +22,10 @@ echo "Installing/Updating dotfiles...\n"
 if [ ! -e $dotfiles/.git ]; then
   echo "Cloning dotfiles\n"
   git clone git@github.com:drvos/dotfiles.git $dotfiles
-  #git clone https://github.com/fdietz/dotfiles.git $dotfiles
 else
   echo "Updating dotfiles\n"
   cd $dotfiles && git pull
+  echo 
 fi
 
 # zsh
