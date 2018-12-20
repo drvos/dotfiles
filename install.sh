@@ -45,6 +45,7 @@ lnif $dotfiles/fzf.zsh $HOME/.fzf.zsh
 echo "Setting up tmux...\n"
 lnif $dotfiles/tmux $HOME/.tmux
 lnif $dotfiles/tmux.conf $HOME/.tmux.conf
+lnif $dotfiles/tmux.conf.local $HOME/.tmux.conf.local
 
 # vim
 echo "Setting up vim...\n"
