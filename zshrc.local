@@ -3,6 +3,7 @@
 # Authors:       mail@volker-schering.de
 ################################################################################
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 ## END OF FILE #################################################################

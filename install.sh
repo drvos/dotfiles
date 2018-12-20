@@ -36,6 +36,10 @@ lnif $dotfiles/zshrc $HOME/.zshrc
 lnif $dotfiles/zshrc.pre $HOME/.zshrc.pre
 lnif $dotfiles/zshrc.local $HOME/.zshrc.local
 
+# fzf 
+echo "Setting up fzf...\n"
+lnif $dotfiles/fzf.zsh $HOME/.fzf.zsh
+
 # vim
 echo "Setting up vim...\n"
 lnif $dotfiles/vim $HOME/.vim
