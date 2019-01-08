@@ -49,7 +49,7 @@ echo "Setting up tmux...\n"
 lnif $dotfiles/tmux $HOME/.tmux
 lnif $dotfiles/tmux.conf $HOME/.tmux.conf
 lnif $dotfiles/tmux.conf.local $HOME/.tmux.conf.local
-lnif $dotfiles/tmux/tmux-cpu-info $HOME/bin/tmux-cpu-info
+lnif $dotfiles/tmux.conf.remote $HOME/.tmux.conf.remote
 
 # vim
 echo "Setting up vim...\n"
