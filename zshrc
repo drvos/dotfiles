@@ -3704,56 +3704,15 @@ function whatwhen () {
     esac
 }
 
-# mercurial related stuff
-if check_com -c hg ; then
-    # gnu like diff for mercurial
-    # http://www.selenic.com/mercurial/wiki/index.cgi/TipsAndTricks
-    #f5# GNU like diff for mercurial
-    function hgdi () {
-        emulate -L zsh
-        local i
-        for i in $(hg status -marn "$@") ; diff -ubwd <(hg cat "$i") "$i"
-    }
-
-    # build debian package
-    #a2# Alias for \kbd{hg-buildpackage}
-    alias hbp='hg-buildpackage'
-
-    # execute commands on the versioned patch-queue from the current repos
-    [[ -n "$GRML_NO_SMALL_ALIASES" ]] || alias mq='hg -R $(readlink -f $(hg root)/.hg/patches)'
-
-    # diffstat for specific version of a mercurial repository
-    #   hgstat      => display diffstat between last revision and tip
-    #   hgstat 1234 => display diffstat between revision 1234 and tip
-    #f5# Diffstat for specific version of a mercurial repos
-    function hgstat () {
-        emulate -L zsh
-        [[ -n "$1" ]] && hg diff -r $1 -r tip | diffstat || hg export tip | diffstat
-    }
-
-fi # end of check whether we have the 'hg'-executable
-
-# grml-small cleanups
-
-# The following is used to remove zsh-config-items that do not work
-# in grml-small by default.
-# If you do not want these adjustments (for whatever reason), set
-# $GRMLSMALL_SPECIFIC to 0 in your .zshrc.pre file (which this configuration
-# sources if it is there).
-
-if (( GRMLSMALL_SPECIFIC > 0 )) && isgrmlsmall ; then
-
-    unset "abk[V]"
-    unalias    'V'      &> /dev/null
-    unfunction vman     &> /dev/null
-    unfunction viless   &> /dev/null
-    unfunction 2html    &> /dev/null
-
-    # manpages are not in grmlsmall
-    unfunction manzsh   &> /dev/null
-    unfunction man2     &> /dev/null
-
-fi
+ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+        tmux rename-window "$(echo $* | cut -d . -f 1)"
+        command ssh "$@"
+        tmux set-window-option automatic-rename "on" 1>/dev/null
+    else
+        command ssh "$@"
+    fi
+}
 
 zrclocal
 
