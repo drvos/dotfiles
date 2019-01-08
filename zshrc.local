@@ -6,4 +6,5 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
+PATH="$HOME/bin:$PATH"
 ## END OF FILE #################################################################
