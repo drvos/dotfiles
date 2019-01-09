@@ -17,9 +17,6 @@ prefix_highlight="#{?client_prefix,#[reverse][^Y]#[noreverse] ,}"
 wg_is_zoomed="#[fg=$color_black,bg=$color_yellow]#{?window_zoomed_flag,[Z],}#[default]"
 wg_is_keys_off="#[fg=$color_white,bg=$color_window_off_indicator]#([ $(tmux show-option -qv key-table) = 'off' ] && echo 'OFF')#[default]"
 
-# Status update interval
-set -g status-interval 1
-
 # Basic status bar colors
 set -g status-bg "$color_black"
 set -g status-fg cyan
