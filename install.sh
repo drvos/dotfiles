@@ -18,12 +18,12 @@ lnif() {
   fi
 }
 
-echo "Installing/Updating dotfiles...\n"
+echo "Installing/Updating dotfiles..."
 if [ ! -e $dotfiles/.git ]; then
-  echo "Cloning dotfiles\n"
+  echo "Cloning dotfiles"
   git clone git@github.com:drvos/dotfiles.git $dotfiles
 else
-  echo "Updating dotfiles\n"
+  echo "Updating dotfiles"
   cd $dotfiles && git pull
   echo 
 fi
@@ -32,34 +32,34 @@ fi
 mkdir -p $HOME/bin
 
 # zsh
-echo "Setting up zsh...\n"
+echo "Setting up zsh..."
 lnif $dotfiles/zsh $HOME/.zsh
 lnif $dotfiles/zlogout $HOME/.zlogout
 lnif $dotfiles/zshrc $HOME/.zshrc
 lnif $dotfiles/zshrc.pre $HOME/.zshrc.pre
-lnif $dotfiles/zshrc.local $HOME/.zshrc.local
+touch $HOME/.zshrc.local 
 
 # fzf 
-echo "Setting up fzf...\n"
+echo "Setting up fzf..."
 lnif $dotfiles/fzf $HOME/.fzf
 lnif $dotfiles/fzf.zsh $HOME/.fzf.zsh
 
 # tmux
-echo "Setting up tmux...\n"
+echo "Setting up tmux..."
 lnif $dotfiles/tmux $HOME/.tmux
 lnif $dotfiles/tmux.conf $HOME/.tmux.conf
-lnif $dotfiles/tmux.conf.local $HOME/.tmux.conf.local
 lnif $dotfiles/tmux.conf.remote $HOME/.tmux.conf.remote
+touch $HOME/.tmux.conf.local
 
 # vim
-echo "Setting up vim...\n"
+echo "Setting up vim..."
 lnif $dotfiles/vim $HOME/.vim
 lnif $dotfiles/vimrc $HOME/.vimrc
 lnif $dotfiles/gvimrc $HOME/.gvimrc
-lnif $dotfiles/vimrc.local $HOME/.vimrc.local
+touch $HOME/.vimrc.local
 
 # git
-echo "Setting up git...\n"
+echo "Setting up git..."
 lnif $dotfiles/gitconfig $HOME/.gitconfig
 lnif $dotfiles/gitignore_global $HOME/.gitignore_global
 

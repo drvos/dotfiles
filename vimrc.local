@@ -1,5 +1,0 @@
-" vimrc.local
-"
-
-" path to fzf
-set rtp+=${HOME}/bin/fzf
