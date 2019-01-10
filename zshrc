@@ -3704,13 +3704,20 @@ function whatwhen () {
     esac
 }
 
+# ssh using a new window when we are in TMUX
+SSHEXEC=$(which ssh)
 ssh() {
-    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
-        tmux rename-window "$(echo $* | cut -d . -f 1)"
-        command ssh "$@"
-        tmux set-window-option automatic-rename "on" 1>/dev/null
+    if [ -n "$TMUX" ]
+    then
+        title="$*"
+        if [ "$1" = -t ]
+        then
+            title="$2"
+            shift 2
+        fi
+        tmux new-window -n "$title" "$SSHEXEC $@ -t 'tmux attach || tmux' "
     else
-        command ssh "$@"
+        $SSHEXEC $@
     fi
 }
 
