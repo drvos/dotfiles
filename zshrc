@@ -3721,6 +3721,18 @@ ssh() {
     fi
 }
 
+# Display changelog of 1st arg (pkg). If 2nd arg set, search for it in the log
+changelog(){ rpm -q --changelog $1 |less -j3 ${2:++/"$2"}; } 
+
+# Simple meal location decider function.
+eatwhat(){ echo "Tacos,Burger,Pizza,Sushi,Salat,Pasta" | tr ',' '\n' | sort -R | head -1; }
+
+# fzf settings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
+PATH="$HOME/bin:$PATH"
+
 zrclocal
 
 ## genrefcard.pl settings

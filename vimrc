@@ -256,6 +256,9 @@ endif
 "  endif
 " endif
 
+" path to fzf
+set rtp+=${HOME}/bin/fzf
+
 " Source a global configuration file if available
 " Deprecated by Debian but still supported by grml
   if filereadable("/etc/vim/vimrc.local")
