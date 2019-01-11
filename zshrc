@@ -3721,6 +3721,23 @@ ssh() {
     fi
 }
 
+# mosh using a new window when we are in TMUX
+MOSHEXEC=$(which mosh)
+mosh() {
+    if [ -n "$TMUX" ]
+    then
+        title="$*"
+        if [ "$1" = -t ]
+        then
+            title="$2"
+            shift 2
+        fi
+        tmux new-window -n "$title" "$MOSHEXEC $@ tmux attach || tmux "
+    else
+        $MOSHEXEC $@
+    fi
+}
+
 # Display changelog of 1st arg (pkg). If 2nd arg set, search for it in the log
 changelog(){ rpm -q --changelog $1 |less -j3 ${2:++/"$2"}; } 
 
