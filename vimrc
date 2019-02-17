@@ -56,6 +56,7 @@
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
   set background=dark
+  colors peaksea
 
 " begin of grml specials:
 "  set list listchars=tab:»·
