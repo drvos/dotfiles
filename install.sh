@@ -25,7 +25,7 @@ if [ ! -e $dotfiles/.git ]; then
 else
   echo "Updating dotfiles"
   cd $dotfiles && git pull
-  echo 
+  echo
 fi
 
 #
@@ -37,9 +37,9 @@ lnif $dotfiles/zsh $HOME/.zsh
 lnif $dotfiles/zlogout $HOME/.zlogout
 lnif $dotfiles/zshrc $HOME/.zshrc
 lnif $dotfiles/zshrc.pre $HOME/.zshrc.pre
-touch $HOME/.zshrc.local 
+touch $HOME/.zshrc.local
 
-# fzf 
+# fzf
 echo "Setting up fzf..."
 lnif $dotfiles/fzf $HOME/.fzf
 lnif $dotfiles/fzf.zsh $HOME/.fzf.zsh
@@ -55,7 +55,6 @@ touch $HOME/.tmux.conf.local
 echo "Setting up vim..."
 lnif $dotfiles/vim $HOME/.vim
 lnif $dotfiles/vimrc $HOME/.vimrc
-lnif $dotfiles/gvimrc $HOME/.gvimrc
 touch $HOME/.vimrc.local
 
 # git
@@ -64,4 +63,4 @@ lnif $dotfiles/gitconfig $HOME/.gitconfig
 lnif $dotfiles/gitignore_global $HOME/.gitignore_global
 
 
-## 
+##
