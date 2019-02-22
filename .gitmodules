@@ -1,0 +1,12 @@
+[submodule "vim/bundle/bufexplorer.vim"]
+	path = vim/bundle/bufexplorer.vim
+	url = https://github.com/jlanzarotta/bufexplorer.git
+[submodule "vim/bundle/mru.vim"]
+	path = vim/bundle/mru.vim
+	url = https://github.com/yegappan/mru.git
+[submodule "vim/bundle/lightline.vim"]
+	path = vim/bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
