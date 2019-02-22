@@ -13,6 +13,7 @@
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
+"    -> Fast editing and reloading of vimrc configs
 "    -> Files and backups
 "    -> Text, tab and indent related
 "    -> Visual mode related
@@ -23,6 +24,7 @@
 "    -> Spell checking
 "    -> Misc
 "    -> Helper functions
+"    -> Further configurations
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -55,7 +57,6 @@ command W w !sudo tee % > /dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute pathogen#infect()
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
@@ -133,6 +134,13 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
+" Disable scrollbars (real hackers don't use scrollbars for navigation!)
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+
+" Colorsheme
 set background=dark
 colors peaksea
 
@@ -144,12 +152,18 @@ if has("gui_running")
     set guitablabel=%M\ %t
 endif
 
-" Set utf8 as standard encoding and en_US as the standard language
+" Set utf8 as standard encoding
 set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Fast editing and reloading of vimrc configs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>e :e! ~/.vimrc<cr>
+autocmd! bufwritepost ~/.vimrc source ~/.vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -256,9 +270,6 @@ set noshowmode
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
-
-" lightline plugin
-let g:lightline = { 'colorscheme': 'wombat',}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -375,8 +386,17 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Further configurations
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " path to fzf
 set rtp+=${HOME}/bin/fzf
+
+" source plugin_config.vim
+if filereadable(expand("$HOME/.vim/plugin_config.vim"))
+  source $HOME/.vim/plugin_config.vim
+endif
 
 " source user-specific local configuration file
 if filereadable(expand("$HOME/.vimrc.local"))

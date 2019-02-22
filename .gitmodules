@@ -1,3 +1,9 @@
 [submodule "vim/bundle/mru.vim"]
 	path = vim/bundle/mru.vim
 	url = https://github.com/yegappan/mru.git
+[submodule "vim/bundle/bufexplorer.vim"]
+	path = vim/bundle/bufexplorer.vim
+	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
