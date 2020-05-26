@@ -24,7 +24,5 @@ map <leader>f :MRU<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+let g:lightline = { 'colorscheme': 'wombat', }
 
