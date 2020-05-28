@@ -328,7 +328,8 @@ map <leader>pp :setlocal paste!<cr>
 
 " LaTeX
 autocmd Filetype tex setl updatetime=1
-let g:livepreview_previewer = 'open -a Preview'
+" Vorschau als Preview_previewer auf Mac
+" let g:livepreview_previewer = 'open -a Preview'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
