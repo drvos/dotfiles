@@ -16,12 +16,16 @@ map <leader>o :BufExplorer<cr>
 
 
 """"""""""""""""""""""""""""""
+" => Dirvish plugin
+""""""""""""""""""""""""""""""
+map <leader>d :Dirvish<cr>
+""""""""""""""""""""""""""""""
 " => MRU plugin 
 " (Most Recently Used Files)
 """"""""""""""""""""""""""""""
 let MRU_Max_Entries = 400
 let g:fzf_mru_no_sort = 1
-map <leader>f :FZFMru<CR>
+map <leader>f :FZFMru<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
