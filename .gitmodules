@@ -31,3 +31,6 @@
 [submodule "vim/bundle/vim-mru"]
 	path = vim/bundle/vim-mru
 	url = https://github.com/yegappan/mru.git
+[submodule "vim/bundle/vim-fzfmru"]
+	path = vim/bundle/vim-fzfmru
+	url = https://github.com/pbogut/fzf-mru.vim.git
