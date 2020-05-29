@@ -27,6 +27,7 @@ else
   cd $dotfiles && git pull
   echo
 fi
+git submodule update --init
 
 #
 mkdir -p $HOME/bin
