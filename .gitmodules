@@ -37,3 +37,6 @@
 [submodule "vim/bundle/vim-fzf"]
 	path = vim/bundle/vim-fzf
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/bundle/vim-vimwiki"]
+	path = vim/bundle/vim-vimwiki
+	url = https://github.com/vimwiki/vimwiki.git

@@ -388,4 +388,8 @@ endif
 if filereadable(expand("$HOME/.vimrc.local"))
   source $HOME/.vimrc.local
 endif
+
+" vimwiki mit Markdown
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
 "# END OF FILE #################################################################
