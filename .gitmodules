@@ -40,3 +40,6 @@
 [submodule "vim/bundle/vim-vimwiki"]
 	path = vim/bundle/vim-vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
+[submodule "vim/bundle/vim-vifm"]
+	path = vim/bundle/vim-vifm
+	url = https://github.com/vifm/vifm.vim.git
