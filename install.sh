@@ -21,7 +21,7 @@ lnif() {
 echo "Installing/Updating dotfiles..."
 if [ ! -e $dotfiles/.git ]; then
   echo "Cloning dotfiles"
-  git clone git@github.com:drvos/dotfiles.git $dotfiles
+  git clone https://github.com/drvos/dotfiles.git $dotfiles
 else
   echo "Updating dotfiles"
   cd $dotfiles && git pull
