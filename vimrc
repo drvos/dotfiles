@@ -219,7 +219,7 @@ map <C-l> <C-W>l
 " Useful mappings for managing tabs
 map <leader>tc :tabnew<cr>  " create ;-)
 map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevios<cr>
+map <leader>tp :tabprevious<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
