@@ -1,3 +1,8 @@
 [user]
 	email = mail@volker-schering.de
 	name = Volker Schering
+	signingkey = 5FAB12A988CA49BDFA6796046DD315C5B18426F3
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg2
