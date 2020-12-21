@@ -67,4 +67,8 @@ lnif $dotfiles/gitignore_global $HOME/.gitignore_global
 echo "Setting up vifm..."
 lnif $dotfiles/vifm $HOME/.vifm
 
+# mutt
+echo "Setting up neomutt..."
+lnif $dotfiles/mutt $HOME/.mutt
+
 ##
