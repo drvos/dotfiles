@@ -6,3 +6,11 @@
 	gpgsign = true
 [gpg]
 	program = /usr/local/bin/gpg2
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+	st = status
+	ci = commit -v
