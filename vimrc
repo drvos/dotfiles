@@ -91,7 +91,9 @@ set whichwrap+=<,>,h,l
 
 " cursorcolumn and cursorline
 set cursorline
-hi CursorLine ctermbg=8 ctermfg=15 "8 = dark gray, 15 = white
+highlight CursorLine ctermbg=8 ctermfg=15 "8 = dark gray, 15 = white
+highlight ColorColumn ctermbg=magenta
+call matchadd('colorColumn','\%81v', 100)
 
 " Ignore case when searching
 set ignorecase
