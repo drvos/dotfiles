@@ -89,6 +89,10 @@ set hid
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
+" cursorcolumn and cursorline
+set cursorline
+hi CursorLine ctermbg=8 ctermfg=15 "8 = dark gray, 15 = white
+
 " Ignore case when searching
 set ignorecase
 
@@ -119,7 +123,7 @@ set t_vb=
 set tm=500
 
 " Properly disable sound on errors on MacVim
-if has("gui_macvim")
+if has("gui_running")
     autocmd GUIEnter * set vb t_vb=
 endif
 
