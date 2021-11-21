@@ -58,8 +58,8 @@ command W w !sudo tee % > /dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" relative linenumbers
-set number relativenumber
+" linenumbers
+set number 
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
@@ -120,7 +120,7 @@ set mat=2
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
-set t_vb=
+
 set tm=500
 
 " Properly disable sound on errors on MacVim
@@ -216,7 +216,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 map <silent> <leader><cr> :noh<cr>
 
 " Useful mappings for managing tabs
-map <leader>tc :tabnew<cr>  " create ;-)
+" create, next and previous
+map <leader>tc :tabnew<cr>
 map <leader>tn :tabnext<cr>
 map <leader>tp :tabprevious<cr>
 
@@ -224,7 +225,6 @@ map <leader>tp :tabprevious<cr>
 let g:lasttab = 1
 nmap <leader>tl :exe "tabn ".g:lasttab<cr>
 au TabLeave * let g:lasttab = tabpagenr()
-
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
