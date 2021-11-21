@@ -288,11 +288,6 @@ au BufRead,BufNewFile ~/buffer.md iab <buffer> xh1 =============================
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-" LaTeX
-autocmd Filetype tex setl updatetime=1
-" Vorschau als Preview_previewer auf Mac
-" let g:livepreview_previewer = 'open -a Preview'
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
