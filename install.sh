@@ -63,10 +63,6 @@ echo "Setting up git..."
 lnif $dotfiles/gitconfig $HOME/.gitconfig
 lnif $dotfiles/gitignore_global $HOME/.gitignore_global
 
-# vifm
-echo "Setting up vifm..."
-lnif $dotfiles/vifm $HOME/.vifm
-
 # mutt
 echo "Setting up neomutt..."
 lnif $dotfiles/mutt $HOME/.mutt
