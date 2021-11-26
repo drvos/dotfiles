@@ -358,8 +358,4 @@ if filereadable(expand("$HOME/.vimrc.local"))
   source $HOME/.vimrc.local
 endif
 
-" perlcritic
-set errorformat+=%m\ at\ %f\ line\ %l
-set errorformat+=%m\ at\ %f\ line\ %l\.
-noremap <leader>c :!time perlc --critic %<cr>
 "# END OF FILE #################################################################
