@@ -4,3 +4,4 @@ Integrierte Plugins
 * https://github.com/yegappan/mru
 * https://github.com/itchyny/lightline.vim
 * https://github.com/jlanzarotta/bufexplorer
+* https://github.com/junegunn/limelight.vim
