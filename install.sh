@@ -32,13 +32,6 @@ git submodule update --init
 #
 mkdir -p $HOME/bin
 
-# zsh
-echo "Setting up zsh..."
-lnif $dotfiles/zsh $HOME/.zsh
-lnif $dotfiles/zlogout $HOME/.zlogout
-lnif $dotfiles/zshrc $HOME/.zshrc
-lnif $dotfiles/zshrc.pre $HOME/.zshrc.pre
-touch $HOME/.zshrc.local
 
 # fzf
 echo "Setting up fzf..."
