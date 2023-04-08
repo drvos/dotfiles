@@ -40,21 +40,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-"  Plug 'mbbill/undotree'              " Anzeigen von alten Revisionen
-"  Plug 'vim-scripts/SearchComplete'   " Autocompletion auch in der Suche aktivieren
-"  Plug 'itchyny/lightline.vim'        " Statuszeile mit mehr Informationen
-"  Plug 'morhetz/gruvbox'              " Farbschema Alternative
-"  Plug 'junegunn/limelight.vim'       " Fokus auf aktuellen Absatz
-"  Plug 'junegunn/goyo.vim'            " Alles ausblenden
-"  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } } " Markdown Preview
-"  Plug 'yegappan/mru'                 " Most Recently Used über :MRU 
-"  Plug '9mm/vim-closer'               " Intelligente Klammern und co.
-"  Plug 'justinmk/vim-sneak'           " Sehr schnelles springen im Code
-"  Plug 'preservim/nerdtree'           " Erweiterter Filebrowser
-"  Plug 'Xuyuanp/nerdtree-git-plugin'  " Erweiterung für Git
-"  Plug 'airblade/vim-gitgutter'       " Änderungen (Git) anzeigen
-"  Plug 'neoclide/coc.nvim'            " Umfangreiches Autocompletion und mehr
-"  Plug 'liuchengxu/vista.vim'         " Functions, Variablen anzeigen
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'preservim/nerdtree'           " Erweiterter Filebrowser
+    Plug 'mbbill/undotree'              " Anzeigen von alten Revisionen
+    Plug 'itchyny/lightline.vim'        " Statuszeile mit mehr Informationen
+    Plug 'yegappan/mru'                 " Most Recently Used über :MRU 
 call plug#end() " Plugins aktivieren
 
 " Automatisch fehlende Plugins installieren
@@ -210,7 +201,7 @@ autocmd! bufwritepost ~/.vimrc source ~/.vimrc
 set nobackup
 set nowb
 set noswapfile
-
+map <leader>u :UndotreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -233,7 +224,6 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
-
 """"""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
@@ -241,7 +231,6 @@ set wrap "Wrap lines
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -252,17 +241,10 @@ map <silent> <leader><cr> :noh<cr>
 " Useful mappings for managing tabs
 " create, next and previous
 map <leader>tc :tabnew<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-
-" Let 'tl' toggle between this and the last accessed tab
-let g:lasttab = 1
-nmap <leader>tl :exe "tabn ".g:lasttab<cr>
-au TabLeave * let g:lasttab = tabpagenr()
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+nnoremap <silent> <leader><Up> :tabnew<CR>
+nnoremap <silent> <leader><Down> :tabclose<CR>
+nnoremap <silent> <leader><Left> :tabprevious<CR>
+nnoremap <silent> <leader><Right> :tabnext<CR>
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -273,10 +255,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
+set cmdheight=2
 set noshowmode
-
-" Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -321,6 +301,11 @@ au BufRead,BufNewFile ~/buffer.md iab <buffer> xh1 =============================
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+" Ctrl-P, MRU and Buffer
+map <C-p> :CtrlP<CR>
+map <C-o> :CtrlPMRU<CR>
+map <C-b> :CtrlPBuffer<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
@@ -374,6 +359,19 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+" ### NERDTree 
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let NERDTreeMinimalUI = 0
+let g:nerdtree_open = 0
+function! StartUp() 
+    if 0 == argc()
+        NERDTree
+        let g:nerdtree_open = 1
+    end
+endfunction
+map <leader>o :NERDTree<CR>
+autocmd VimEnter * call StartUp()    " Nerdtree anzeigen beim Start, wenn man keine Datei öffnet
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Further configurations
