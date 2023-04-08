@@ -1,5 +1,7 @@
 vim/spell/*
 vim/.netrwhist
+vim/autoload
+vim/plugged
 *.DS_Store
 *.swp
 *.local

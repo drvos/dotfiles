@@ -10,6 +10,7 @@
 "           https://github.com/amix/vimrc
 "
 " Sections:
+"    -> Plugins
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -27,6 +28,39 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Installation Pluginmanager
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+"  Plug 'mbbill/undotree'              " Anzeigen von alten Revisionen
+"  Plug 'vim-scripts/SearchComplete'   " Autocompletion auch in der Suche aktivieren
+"  Plug 'itchyny/lightline.vim'        " Statuszeile mit mehr Informationen
+"  Plug 'morhetz/gruvbox'              " Farbschema Alternative
+"  Plug 'junegunn/limelight.vim'       " Fokus auf aktuellen Absatz
+"  Plug 'junegunn/goyo.vim'            " Alles ausblenden
+"  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } } " Markdown Preview
+"  Plug 'yegappan/mru'                 " Most Recently Used über :MRU 
+"  Plug '9mm/vim-closer'               " Intelligente Klammern und co.
+"  Plug 'justinmk/vim-sneak'           " Sehr schnelles springen im Code
+"  Plug 'preservim/nerdtree'           " Erweiterter Filebrowser
+"  Plug 'Xuyuanp/nerdtree-git-plugin'  " Erweiterung für Git
+"  Plug 'airblade/vim-gitgutter'       " Änderungen (Git) anzeigen
+"  Plug 'neoclide/coc.nvim'            " Umfangreiches Autocompletion und mehr
+"  Plug 'liuchengxu/vista.vim'         " Functions, Variablen anzeigen
+call plug#end() " Plugins aktivieren
+
+" Automatisch fehlende Plugins installieren
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
