@@ -27,7 +27,6 @@ else
   cd $dotfiles && git pull
   echo
 fi
-git submodule update --init
 
 #
 mkdir -p $HOME/bin
@@ -50,14 +49,5 @@ echo "Setting up vim..."
 lnif $dotfiles/vim $HOME/.vim
 lnif $dotfiles/vimrc $HOME/.vimrc
 touch $HOME/.vimrc.local
-
-# git
-echo "Setting up git..."
-lnif $dotfiles/gitconfig $HOME/.gitconfig
-lnif $dotfiles/gitignore_global $HOME/.gitignore_global
-
-# mutt
-echo "Setting up neomutt..."
-lnif $dotfiles/mutt $HOME/.mutt
 
 ##
