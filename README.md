@@ -8,5 +8,3 @@ Konfigurationen für
   * tmux
   * vim 
   * fzf
-  * git
-  * mutt
