@@ -14,6 +14,11 @@ The following tools are required:
 - fzf
 - vim
 
+The installation must be done in an activated zsh.
+```sh
+chsh -s `which zsh`
+```
+
 ```sh
 git clone https://github.com/drvos/dotfiles.git 
 cd dotfiles
