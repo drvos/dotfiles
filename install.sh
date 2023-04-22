@@ -28,7 +28,7 @@ else
   echo
 fi
 echo "Installing/Updating antigen..."
-curl -L git.io/antigen > $dotfiles/zsh/antigen.zsh
+curl -L -sS git.io/antigen > $dotfiles/zsh/antigen.zsh
 mkdir -p $HOME/bin
 
 # zsh
@@ -55,4 +55,7 @@ lnif $dotfiles/vim $HOME/.vim
 lnif $dotfiles/vimrc $HOME/.vimrc
 touch $HOME/.vimrc.local
 
+echo "Reload configs"
+source $HOME/.zshrc
+source tmux source-file $HOME/.tmux.conf
 ##
