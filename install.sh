@@ -52,7 +52,7 @@ lnif $dotfiles/vim $HOME/.vim
 lnif $dotfiles/vimrc $HOME/.vimrc
 touch $HOME/.vimrc.local
 
-echo "Reload configs"
+echo "Reload zsh config"
 source $HOME/.zshrc
-source tmux source-file $HOME/.tmux.conf
 ##
+echo "Installation completed successfully. Do not forget to reload the configurations."
