@@ -12,7 +12,7 @@ antigen bundles <<EOBUNDLES
     fzf
 EOBUNDLES
 
-antigen theme robbyrussell
+antigen theme fox
 
 # Commit Antigen Configuration
 antigen apply
