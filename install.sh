@@ -27,6 +27,7 @@ else
   cd $dotfiles && git pull
   echo
 fi
+echo "Installing/Updating antigen..."
 curl -L git.io/antigen > $dotfiles/zsh/antigen.zsh
 mkdir -p $HOME/bin
 
