@@ -18,12 +18,6 @@ lnif() {
   fi
 }
 
-myshell=`echo $0`
-if [ $myshell != "-zsh" ]; then
-    echo "Active shell is no zsh. Exit!"
-    exit 1;
-fi
-
 echo "Installing/Updating dotfiles..."
 if [ ! -e $dotfiles/.git ]; then
   git clone https://github.com/drvos/dotfiles.git $dotfiles
