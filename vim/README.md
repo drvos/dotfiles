@@ -1,4 +1,4 @@
-*Pluginmanager* [vim-plug](https://raw.githubusercontent.com/junegunn/vim-plug/)
+*Pluginmanager* [vim-plug](https://github.com/junegunn/vim-plug)
 - machakann/vim-highlightedyank  
 - ctrlpvim/ctrlp.vim
 - preservim/nerdtree          
