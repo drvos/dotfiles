@@ -18,14 +18,17 @@ lnif() {
   fi
 }
 
+myshell=`echo $0`
+if [ $myshell != "-zsh" ]; then
+    echo "Active shell is no zsh. Exit!"
+    exit 1;
+fi
+
 echo "Installing/Updating dotfiles..."
 if [ ! -e $dotfiles/.git ]; then
-  echo "Cloning dotfiles"
   git clone https://github.com/drvos/dotfiles.git $dotfiles
 else
-  echo "Updating dotfiles"
   cd $dotfiles && git pull
-  echo
 fi
 echo "Installing/Updating antigen..."
 curl -L -sS git.io/antigen > $dotfiles/zsh/antigen.zsh
