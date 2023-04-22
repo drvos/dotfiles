@@ -1,0 +1,18 @@
+source .zsh/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Load bundles from external repos
+antigen bundles <<EOBUNDLES
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-completions
+    git
+    fzf
+EOBUNDLES
+
+antigen theme robbyrussell
+
+# Commit Antigen Configuration
+antigen apply

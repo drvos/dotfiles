@@ -27,10 +27,14 @@ else
   cd $dotfiles && git pull
   echo
 fi
-
-#
+curl -L git.io/antigen > $dotfiles/zsh/antigen.zsh
 mkdir -p $HOME/bin
 
+# zsh
+echo "Setting up zsh..."
+lnif $dotfiles/zsh $HOME/.zsh
+lnif $dotfiles/zsh/zshrc $HOME/.zshrc
+touch $HOME/.zshrc.local
 
 # fzf
 echo "Setting up fzf..."
