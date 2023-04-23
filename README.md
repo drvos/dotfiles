@@ -25,3 +25,5 @@ cd dotfiles
 ./install.sh
 ```
 The configuration files are symlinked to the home directory.
+
+After the installation is finished, the tmux plugins can be installed with `PREFIX`+`I`.

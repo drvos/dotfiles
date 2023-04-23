@@ -1,8 +1,9 @@
-vim/spell/*
+vim/spell
 vim/.netrwhist
 vim/autoload
 vim/plugged
 zsh/antigen.zsh
+tmux/plugins
 *.DS_Store
 *.swp
 *.local
