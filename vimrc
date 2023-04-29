@@ -40,12 +40,17 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    Plug 'machakann/vim-highlightedyank'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'preservim/nerdtree'           " Erweiterter Filebrowser
-    Plug 'mbbill/undotree'              " Anzeigen von alten Revisionen
-    Plug 'itchyny/lightline.vim'        " Statuszeile mit mehr Informationen
-    Plug 'yegappan/mru'                 " Most Recently Used über :MRU 
+    Plug 'machakann/vim-highlightedyank' " Anzeige kopierter Texte
+    Plug 'ctrlpvim/ctrlp.vim'            "
+    Plug 'preservim/nerdtree'            " Erweiterter Filebrowser
+    Plug 'Xuyuanp/nerdtree-git-plugin'   " Anzeige von Git Status
+    Plug 'mbbill/undotree'               " Anzeigen von alten Revisionen
+    Plug 'itchyny/lightline.vim'         " Statuszeile mit mehr Informationen
+    Plug 'yegappan/mru'                  " Most Recently Used über :MRU 
+    Plug 'machakann/vim-highlightedyank' " Anzeige kopierter Texte
+    Plug 'preservim/nerdtree'            " Erweiterter Filebrowser
+    Plug 'ryanoasis/vim-devicons'        " 
+    Plug 'xuhdev/vim-latex-live-preview' " LaTeX Preview
 call plug#end() " Plugins aktivieren
 
 " Automatisch fehlende Plugins installieren
@@ -178,7 +183,8 @@ if has("gui_running")
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
-    set guifont=Inconsolata-Regular:h16  
+    " set guifont=Inconsolata-Regular:h16  
+    set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h15
 endif
 
 " Set utf8 as standard encoding
