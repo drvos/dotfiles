@@ -376,7 +376,7 @@ function! StartUp()
         let g:nerdtree_open = 1
     end
 endfunction
-map <leader>o :NERDTree<CR>
+map <leader>o :NERDTreeToggle<CR>
 autocmd VimEnter * call StartUp()    " Nerdtree anzeigen beim Start, wenn man keine Datei öffnet
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
