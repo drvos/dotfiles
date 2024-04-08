@@ -48,9 +48,9 @@ call plug#begin()
     Plug 'itchyny/lightline.vim'         " Statuszeile mit mehr Informationen
     Plug 'yegappan/mru'                  " Most Recently Used über :MRU 
     Plug 'machakann/vim-highlightedyank' " Anzeige kopierter Texte
-    Plug 'preservim/nerdtree'            " Erweiterter Filebrowser
     Plug 'ryanoasis/vim-devicons'        " 
     Plug 'xuhdev/vim-latex-live-preview' " LaTeX Preview
+    Plug 'neomake/neomake'               " Make
 call plug#end() " Plugins aktivieren
 
 " Automatisch fehlende Plugins installieren
@@ -144,6 +144,7 @@ set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch 
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
