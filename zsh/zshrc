@@ -13,6 +13,8 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-completions
     git
     fzf
+    Aloxaf/fzf-tab
+    unixorn/fzf-zsh-plugin@main
 EOBUNDLES
 
 antigen theme fox
