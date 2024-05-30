@@ -41,16 +41,17 @@ endif
 
 call plug#begin()
     Plug 'machakann/vim-highlightedyank' " Anzeige kopierter Texte
-    Plug 'ctrlpvim/ctrlp.vim'            "
+    Plug 'ctrlpvim/ctrlp.vim'            " CtrlP
+    Plug 'yegappan/mru'                  " Most Recently Used über :MRU 
     Plug 'preservim/nerdtree'            " Erweiterter Filebrowser
     Plug 'Xuyuanp/nerdtree-git-plugin'   " Anzeige von Git Status
     Plug 'mbbill/undotree'               " Anzeigen von alten Revisionen
     Plug 'itchyny/lightline.vim'         " Statuszeile mit mehr Informationen
-    Plug 'yegappan/mru'                  " Most Recently Used über :MRU 
     Plug 'machakann/vim-highlightedyank' " Anzeige kopierter Texte
     Plug 'ryanoasis/vim-devicons'        " 
     Plug 'xuhdev/vim-latex-live-preview' " LaTeX Preview
     Plug 'neomake/neomake'               " Make
+    Plug 'vim-test/vim-test'
 call plug#end() " Plugins aktivieren
 
 " Automatisch fehlende Plugins installieren
@@ -379,6 +380,9 @@ function! StartUp()
 endfunction
 map <leader>o :NERDTreeToggle<CR>
 autocmd VimEnter * call StartUp()    " Nerdtree anzeigen beim Start, wenn man keine Datei öffnet
+
+" ### NeoMake
+call neomake#configure#automake('nrwi', 500)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Further configurations
