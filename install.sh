@@ -52,6 +52,11 @@ lnif $dotfiles/vim $HOME/.vim
 lnif $dotfiles/vimrc $HOME/.vimrc
 touch $HOME/.vimrc.local
 
+# neovim
+echo "Setting up neovim..."
+mkdir -p $HOME/.config
+lnif $dotfiles/nvim $HOME/.config/nvim
+
 echo "Reload zsh config"
 source $HOME/.zshrc
 ##
