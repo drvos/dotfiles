@@ -22,3 +22,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins") -- Plugins from directory lua/plugins
+
+--------------------------------------------------------------------------------
+-- --> 
+--------------------------------------------------------------------------------
+vim.cmd.colorscheme "catppuccin"
