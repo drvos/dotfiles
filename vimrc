@@ -390,6 +390,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeMinimalUI = 0
 let g:nerdtree_open = 0
+let g:NERDTreeMapChangeRoot = '.'
 function! StartUp() 
     if 0 == argc()
         NERDTree
@@ -398,6 +399,7 @@ function! StartUp()
 endfunction
 map <leader>o :NERDTreeToggle<CR>
 autocmd VimEnter * call StartUp()    " Nerdtree anzeigen beim Start, wenn man keine Datei öffnet
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif " Exit Vim if NERDTree is the only window remaining in the only tab.
 
 " ### NeoMake
 call neomake#configure#automake('nrwi', 500)
