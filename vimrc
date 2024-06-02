@@ -42,8 +42,8 @@ endif
 
 call plug#begin()
     Plug 'machakann/vim-highlightedyank' " Anzeige kopierter Texte
-    Plug 'ctrlpvim/ctrlp.vim'            " CtrlP
-    Plug 'yegappan/mru'                  " Most Recently Used über :MRU 
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'              " Fuzzy Finder fzf
     Plug 'preservim/nerdtree'            " Erweiterter Filebrowser
     Plug 'Xuyuanp/nerdtree-git-plugin'   " Anzeige von Git Status
     Plug 'mbbill/undotree'               " Anzeigen von alten Revisionen
@@ -318,6 +318,10 @@ au BufRead,BufNewFile ~/buffer.md iab <buffer> xh1 =============================
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+" fzf files
+map <C-p> :Files<CR>
+map <C-b> :Buffers<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
