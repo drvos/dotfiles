@@ -24,6 +24,7 @@
 "    -> vimgrep searching and cope displaying
 "    -> Misc
 "    -> Helper functions
+"    -> Plugin configurations
 "    -> Further configurations
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -62,6 +63,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set nocompatible
 
 " Sets how many lines of history VIM has to remember
@@ -89,6 +91,7 @@ command W w !sudo tee % > /dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " linenumbers
 set number 
 
@@ -166,6 +169,7 @@ set foldcolumn=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Enable syntax highlighting
 syntax enable 
 
@@ -199,12 +203,14 @@ set ffs=unix,dos,mac
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 map <leader>e :e! ~/.vimrc<cr>
 autocmd! bufwritepost ~/.vimrc source ~/.vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
@@ -235,6 +241,7 @@ set wrap "Wrap lines
 """"""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
+
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
@@ -243,6 +250,7 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -257,10 +265,10 @@ nnoremap <silent> <leader><Right> :tabnext<CR>
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
+
 " Always show the status line
 set laststatus=2
 set cmdheight=2
@@ -269,6 +277,7 @@ set noshowmode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
@@ -296,6 +305,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
@@ -318,6 +328,7 @@ map <C-b> :CtrlPBuffer<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
@@ -368,6 +379,9 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin configurations
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ### NERDTree 
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeMinimalUI = 0
