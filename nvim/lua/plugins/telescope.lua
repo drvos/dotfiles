@@ -1,4 +1,3 @@
--- Plugin telescope
 return {
 	{ 
 		"nvim-telescope/telescope.nvim", 

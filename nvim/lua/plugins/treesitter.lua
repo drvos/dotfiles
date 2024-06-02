@@ -1,4 +1,3 @@
--- Plugin treesitter
 return {
 	{ 
 		"nvim-treesitter/nvim-treesitter",
