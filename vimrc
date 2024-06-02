@@ -215,7 +215,6 @@ autocmd! bufwritepost ~/.vimrc source ~/.vimrc
 set nobackup
 set nowb
 set noswapfile
-map <leader>u :UndotreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -382,6 +381,9 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin configurations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" ### UndoTree
+map <leader>u :UndotreeToggle<CR>
 " ### NERDTree 
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeMinimalUI = 0
