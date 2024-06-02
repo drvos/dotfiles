@@ -319,11 +319,6 @@ au BufRead,BufNewFile ~/buffer.md iab <buffer> xh1 =============================
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-" Ctrl-P, MRU and Buffer
-map <C-p> :CtrlP<CR>
-map <C-o> :CtrlPMRU<CR>
-map <C-b> :CtrlPBuffer<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -384,6 +379,13 @@ endfunction
 
 " ### UndoTree
 map <leader>u :UndotreeToggle<CR>
+
+" ### Ctrl-P with MRU and Buffer
+map <C-p> :CtrlP<CR>
+map <C-o> :CtrlPMRU<CR>
+map <C-b> :CtrlPBuffer<CR>
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
 " ### NERDTree 
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeMinimalUI = 0
