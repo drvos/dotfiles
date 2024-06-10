@@ -1,7 +1,7 @@
 return {
    {
-      "nvim-neo-tree/neo-tree.nvim", 
-      name = "neo-tree", 
+      "nvim-neo-tree/neo-tree.nvim",
+      name = "neo-tree",
       priority = 1000,
 		branch = "v3.x",
 		dependencies = {

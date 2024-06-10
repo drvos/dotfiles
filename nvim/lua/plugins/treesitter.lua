@@ -1,5 +1,5 @@
 return {
-	{ 
+	{
 		"nvim-treesitter/nvim-treesitter",
 		name = "nvim-treesitter",
 		priority = 1000,
@@ -9,11 +9,11 @@ return {
 		keys = {
 		},
 		config = function()
-			require("nvim-treesitter").setup({ 
+			require("nvim-treesitter").setup({
 				ensure_installed = { "lua", "vim", "vimdoc", "perl", "javascript", "html" },
 				sync_install = false,
 				highlight = { enable = true },
-				indent = { enable = true },  
+				indent = { enable = true },
          })
 		end,
 	}

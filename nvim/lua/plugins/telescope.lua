@@ -1,10 +1,10 @@
 return {
-	{ 
-		"nvim-telescope/telescope.nvim", 
+	{
+		"nvim-telescope/telescope.nvim",
 		name = "telescope",
 		priority = 1000,
       branch = '0.1.x',
-		dependencies = { 
+		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 		keys = {
