@@ -21,7 +21,6 @@ return {
       config = function()
          local lspconfig = require("lspconfig")
          lspconfig.lua_ls.setup({})
-         lspconfig.ansiblels.setup({})
          lspconfig.perlpls.setup({})
 
          vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
