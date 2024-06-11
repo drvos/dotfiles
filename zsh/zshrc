@@ -1,7 +1,4 @@
 source ${HOME}/.zsh/antigen.zsh
-if [ -e ${HOME}/.zshrc.local ] ; then
-    source ${HOME}/.zshrc.local
-fi
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -21,3 +18,7 @@ antigen theme fox
 
 # Commit Antigen Configuration
 antigen apply
+
+if [ -e ${HOME}/.zshrc.local ] ; then
+    source ${HOME}/.zshrc.local
+fi
