@@ -155,7 +155,7 @@ bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 size = 14.0
 
 [scrolling]
-history = 10000
+history = 30000
 
 [window]
 decorations = "full"
