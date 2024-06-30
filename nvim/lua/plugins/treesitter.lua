@@ -10,7 +10,7 @@ return {
 		},
 		config = function()
 			require("nvim-treesitter").setup({
-				ensure_installed = { "lua", "vim", "vimdoc", "perl", "javascript", "html" },
+				ensure_installed = { "lua", "vim", "vimdoc", "perl", "pod", "javascript", "html" },
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
