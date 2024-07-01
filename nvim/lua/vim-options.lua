@@ -7,7 +7,10 @@ vim.g.mapleader = " "
 
 vim.g.background = "light"
 
-vim.keymap.set('n', '<leader>pp', ':setlocal paste!<CR>')
-vim.keymap.set('n', '<leader><enter>', ':nohlsearch<CR>')
+vim.keymap.set("n", "<C-j>", ":m+1<CR>==")
+vim.keymap.set("n", "<C-k>", ":m-2<CR>==")
+
+vim.keymap.set("n", "<leader>pp", ":setlocal paste!<CR>")
+vim.keymap.set("n", "<leader><enter>", ":nohlsearch<CR>")
 vim.wo.number = true
 vim.opt.swapfile = false
