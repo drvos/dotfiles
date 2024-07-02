@@ -41,7 +41,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    Plug 'machakann/vim-highlightedyank' " Anzeige kopierter Texte
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'              " Fuzzy Finder fzf
     Plug 'preservim/nerdtree'            " Erweiterter Filebrowser
@@ -319,10 +318,6 @@ au BufRead,BufNewFile ~/buffer.md iab <buffer> xh1 =============================
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-" fzf files
-map <C-p> :Files<CR>
-map <C-b> :Buffers<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -384,11 +379,10 @@ endfunction
 " ### UndoTree
 map <leader>u :UndotreeToggle<CR>
 
-" ### Ctrl-P with MRU and Buffer
-map <C-p> :CtrlP<CR>
-map <C-o> :CtrlPMRU<CR>
-map <C-b> :CtrlPBuffer<CR>
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" ### fzf files
+map <leader>p :Files<CR> 
+map <leader>b :Buffers<CR>
+map <leader><leader> :History<CR>
 
 " ### NERDTree 
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
