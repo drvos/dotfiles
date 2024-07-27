@@ -1,0 +1,5 @@
+{
+    "perl.p::ls.enable": true,
+    "perl.p::ls.logLevel": 2,
+    "perl.p::ls.logFile": "coc-perl.log"
+}
