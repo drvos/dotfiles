@@ -51,11 +51,14 @@ call plug#begin()
     Plug 'machakann/vim-highlightedyank' " Anzeige kopierter Texte
     Plug 'xuhdev/vim-latex-live-preview' " LaTeX Preview
     Plug 'neomake/neomake'               " Make
-    Plug 'vim-test/vim-test'
     Plug 'ryanoasis/vim-devicons'        " 
 
     Plug 'neoclide/coc.nvim', { 'branch': 'release' } " Code Completion
     Plug 'bmeneg/coc-perl'
+
+    Plug 'garbas/vim-snipmate'
+    Plug 'MarcWeber/vim-addon-mw-utils'
+    Plug 'honza/vim-snippets'
 call plug#end() " Plugins aktivieren
 
 " Automatisch fehlende Plugins installieren
@@ -73,8 +76,7 @@ set nocompatible
 set history=500
 
 " Enable filetype plugins
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -161,11 +163,6 @@ set novisualbell
 
 set tm=500
 
-" Properly disable sound on errors on MacVim
-if has("gui_running")
-    autocmd GUIEnter * set vb t_vb=
-endif
-
 " Add a bit extra margin to the left
 set foldcolumn=1
 
@@ -176,7 +173,7 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
-" Disable scrollbars (real hackers don't use scrollbars for navigation!)
+" Disable scrollbars
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
@@ -195,6 +192,7 @@ if has("gui_running")
     set guitablabel=%M\ %t
     " set guifont=Inconsolata-Regular:h16  
     set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h15
+    autocmd GUIEnter * set vb t_vb=
 endif
 
 " Set utf8 as standard encoding
@@ -258,8 +256,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 map <silent> <leader><cr> :noh<cr>
 
 " Useful mappings for managing tabs
-" create, next and previous
-map <leader>tc :tabnew<cr>
 nnoremap <silent> <leader><Up> :tabnew<CR>
 nnoremap <silent> <leader><Down> :tabclose<CR>
 nnoremap <silent> <leader><Left> :tabprevious<CR>
@@ -302,7 +298,7 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh :call CleanExtraSpaces()
+    autocmd BufWritePre *.txt,*.js,*.py,*.pl,*.sh :call CleanExtraSpaces()
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -322,6 +318,8 @@ au BufRead,BufNewFile ~/buffer.md iab <buffer> xh1 =============================
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+map <leader>t :make<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
@@ -381,22 +379,24 @@ endfunction
 " => Plugin configurations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ### CoC
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" ### CoC Settings
+function! s:show_documentation()
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
+endfunction
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
-" " <C-g>u breaks current undo, please make your own choice
+" <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-function! CheckBackspace() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~# '\s'
-endfunction
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " ### UndoTree
 map <leader>u :UndotreeToggle<CR>
@@ -422,6 +422,8 @@ autocmd VimEnter * call StartUp()    " Nerdtree anzeigen beim Start, wenn man ke
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif " Exit Vim if NERDTree is the only window remaining in the only tab.
 
 " ### NeoMake
+" Full config: when writing or reading a buffer, and on changes in insert and
+" normal mode (after 500ms; no delay when writing).
 call neomake#configure#automake('nrwi', 500)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
