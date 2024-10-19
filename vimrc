@@ -46,12 +46,14 @@ call plug#begin()
     Plug 'preservim/nerdtree'            " Erweiterter Filebrowser
     Plug 'Xuyuanp/nerdtree-git-plugin'   " Anzeige von Git Status
     Plug 'mbbill/undotree'               " Anzeigen von alten Revisionen
+    Plug 'gruvbox-community/gruvbox'     " Colorscheme gruvbox
     Plug 'itchyny/lightline.vim'         " Statuszeile mit mehr Informationen
     Plug 'machakann/vim-highlightedyank' " Anzeige kopierter Texte
-    Plug 'ryanoasis/vim-devicons'        " 
     Plug 'xuhdev/vim-latex-live-preview' " LaTeX Preview
     Plug 'neomake/neomake'               " Make
     Plug 'vim-test/vim-test'
+    Plug 'ryanoasis/vim-devicons'        " 
+
     Plug 'neoclide/coc.nvim', { 'branch': 'release' } " Code Completion
     Plug 'bmeneg/coc-perl'
 call plug#end() " Plugins aktivieren
@@ -182,13 +184,14 @@ set guioptions-=L
 
 " Colorsheme
 set background=dark
-colors peaksea
+colors gruvbox
+
+set t_Co=256
 
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
     set guioptions-=e
-    set t_Co=256
     set guitablabel=%M\ %t
     " set guifont=Inconsolata-Regular:h16  
     set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h15
