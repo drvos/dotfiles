@@ -44,6 +44,7 @@ echo "Setting up tmux..."
 lnif $dotfiles/tmux $HOME/.tmux
 lnif $dotfiles/tmux.conf $HOME/.tmux.conf
 lnif $dotfiles/tmux.conf.remote $HOME/.tmux.conf.remote
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 touch $HOME/.tmux.conf.local
 
 # vim
